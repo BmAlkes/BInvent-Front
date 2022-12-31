@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../assets/Logo.png";
+import Logo1 from "../../assets/logo1.png";
 import heroImg from "../../assets/inv-img.png";
 import { Link } from "react-router-dom";
 import "./Home.scss";
@@ -10,7 +10,7 @@ const Home = () => {
     <div className="home">
       <nav className="container --flex-between">
         <div className="logo">
-          <img src={Logo} />
+          <img src={Logo1} />
         </div>
         <ul className="home-links">
           <li>
