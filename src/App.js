@@ -1,9 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SiderBar from "./Components/sidebar/SiderBar";
 import Forgot from "./Pages/auth/Forgot";
 import Login from "./Pages/auth/Login";
 import Reset from "./Pages/auth/Reset";
 import Resgister from "./Pages/auth/Resgister";
 import Home from "./Pages/Home";
+import Layout from "./Components/layout/layout";
+import Dashboard from "./Pages/DashBoard/Dashboard";
 
 function App() {
   return (
@@ -14,6 +17,17 @@ function App() {
         <Route path="/resetpassword/:resetToken" element={<Reset />} />
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/register" element={<Resgister />} />
+
+        <Route
+          path="/dashboard"
+          element={
+            <SiderBar>
+              <Layout>
+                <Dashboard />
+              </Layout>
+            </SiderBar>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
