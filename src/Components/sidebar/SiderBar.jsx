@@ -18,7 +18,7 @@ const Sidebar = ({ children }) => {
 
   return (
     <div className="layout">
-      <div className="sidebar" style={{ width: isOpen ? "230px" : "100px" }}>
+      <div className="sidebar" style={{ width: isOpen ? "230px" : "70px" }}>
         <div className="top_section">
           <div className="logo" style={{ display: isOpen ? "block" : "none" }}>
             <img src={Logo1} style={{ cursor: "pointer" }} onClick={goHome} />

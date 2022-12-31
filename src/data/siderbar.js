@@ -1,5 +1,6 @@
 import { FaTh, FaRegChartBar, FaCommentAlt } from "react-icons/fa";
 import { BiImageAdd } from "react-icons/bi";
+import { MdSystemUpdate } from "react-icons/md";
 
 const menu = [
   {
@@ -30,6 +31,11 @@ const menu = [
     title: "Report Bug",
     icon: <FaCommentAlt />,
     path: "/contact-us",
+  },
+  {
+    title: "System",
+    icon: <MdSystemUpdate />,
+    path: "/systeam",
   },
 ];
 
