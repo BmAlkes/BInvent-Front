@@ -7,10 +7,16 @@ import Resgister from "./Pages/auth/Resgister";
 import Home from "./Pages/Home";
 import Layout from "./Components/layout/layout";
 import Dashboard from "./Pages/DashBoard/Dashboard";
+import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
     <BrowserRouter>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
