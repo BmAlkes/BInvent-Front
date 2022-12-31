@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { registerUser, validateEmail } from "../../services/authServices";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-// import { SET_LOGIN, SET_NAME } from "../../redux/features/auth/authSlice";
+import { SET_LOGIN, SET_NAME } from "../../redux/features/auth/authSlice";
 import Loader from "../../Components/loader/Loader";
 
 const initialState = {
@@ -16,7 +16,7 @@ const initialState = {
   password2: "",
 };
 
-const Resgister = () => {
+const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -61,61 +61,64 @@ const Resgister = () => {
       setIsLoading(false);
     }
   };
-  <div className={`container ${styles.auth}`}>
-    {isLoading && <Loader />}
-    <Card>
-      <div className={styles.form}>
-        <div className="--flex-center">
-          <TiUserAddOutline size={35} color="#999" />
+
+  return (
+    <div className={`container ${styles.auth}`}>
+      {isLoading && <Loader />}
+      <Card>
+        <div className={styles.form}>
+          <div className="--flex-center">
+            <TiUserAddOutline size={35} color="#999" />
+          </div>
+          <h2>Register</h2>
+
+          <form onSubmit={register}>
+            <input
+              type="text"
+              placeholder="Name"
+              required
+              name="name"
+              value={name}
+              onChange={handleInputChange}
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              name="email"
+              value={email}
+              onChange={handleInputChange}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              name="password"
+              value={password}
+              onChange={handleInputChange}
+            />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              required
+              name="password2"
+              value={password2}
+              onChange={handleInputChange}
+            />
+            <button type="submit" className="--btn --btn-primary --btn-block">
+              Register
+            </button>
+          </form>
+
+          <span className={styles.register}>
+            <Link to="/">Home</Link>
+            <p> &nbsp; Already have an account? &nbsp;</p>
+            <Link to="/login">Login</Link>
+          </span>
         </div>
-        <h2>Register</h2>
-
-        <form onSubmit={register}>
-          <input
-            type="text"
-            placeholder="Name"
-            required
-            name="name"
-            value={name}
-            onChange={handleInputChange}
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            required
-            name="email"
-            value={email}
-            onChange={handleInputChange}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            required
-            name="password"
-            value={password}
-            onChange={handleInputChange}
-          />
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            required
-            name="password2"
-            value={password2}
-            onChange={handleInputChange}
-          />
-          <button type="submit" className="--btn --btn-primary --btn-block">
-            Register
-          </button>
-        </form>
-
-        <span className={styles.register}>
-          <Link to="/">Home</Link>
-          <p> &nbsp; Already have an account? &nbsp;</p>
-          <Link to="/login">Login</Link>
-        </span>
-      </div>
-    </Card>
-  </div>;
+      </Card>
+    </div>
+  );
 };
 
-export default Resgister;
+export default Register;

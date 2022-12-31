@@ -1,5 +1,5 @@
 import React from "react";
-import Logo1 from "../../assets/logo1.png";
+import Logo1 from "../../assets/Logo.png";
 import heroImg from "../../assets/inv-img.png";
 import { Link } from "react-router-dom";
 import "./Home.scss";

@@ -8,9 +8,10 @@
   & nav {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    margin: 0px;
     color: #fff;
     & > .logo img {
-      max-width: 500px;
+      width: 500px;
     }
   }
 }
