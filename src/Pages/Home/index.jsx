@@ -18,7 +18,7 @@ const Home = () => {
           </li>
           <li>
             <button className="--btn --btn-primary">
-              <Link to="/dashboard">Login</Link>
+              <Link to="/login">Login</Link>
             </button>
           </li>
           <li>
