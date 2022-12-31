@@ -19,7 +19,10 @@
     flex-direction: column;
     margin-bottom: 1rem;
     & .logo img {
-      width: 250px;
+      width: 350px;
+    }
+    & .home-links {
+      margin-bottom: 2rem;
     }
   }
 }
