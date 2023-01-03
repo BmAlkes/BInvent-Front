@@ -55,7 +55,6 @@ const Home = () => {
           <img src={heroImg} alt="Inventory" />
         </div>
       </section>
-      <Footer />
     </div>
   );
 };
