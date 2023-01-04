@@ -11,7 +11,8 @@
     margin: 0px;
     color: #fff;
     & > .logo img {
-      width: 500px;
+      width: 100%;
+      max-width:500px;
     }
   }
 }
@@ -20,7 +21,7 @@
     flex-direction: column;
     margin-bottom: 1rem;
     & .logo img {
-      width: 300px;
+      max-width: 250px;
     }
     & .home-links {
       margin-bottom: 2rem;
