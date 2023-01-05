@@ -1,7 +1,8 @@
 import React from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import Card from "../Card/Card";
+import Card from "../../Card/Card";
+
 import "./productForm.scss";
 
 const ProductForm = ({
@@ -17,23 +18,24 @@ const ProductForm = ({
   return (
     <div className="add-product">
       <Card cardClass={"card"}>
-        <form onsubmit={saveProduct}>
+        <form onSubmit={saveProduct}>
           <Card cardClass={"group"}>
             <label>Product Image</label>
             <code className="--color-dark">
-              Supported Formats :jpg,jpeg,png
+              Supported Formats: jpg, jpeg, png
             </code>
             <input
               type="file"
               name="image"
               onChange={(e) => handleImageChange(e)}
             />
+
             {imagePreview != null ? (
               <div className="image-preview">
-                <img src={imagePreview} alt="Product Image" />
+                <img src={imagePreview} alt="product" />
               </div>
             ) : (
-              <p> No image set for this product</p>
+              <p>No image set for this poduct.</p>
             )}
           </Card>
           <label>Product Name:</label>
@@ -94,7 +96,7 @@ const ProductForm = ({
 
 ProductForm.modules = {
   toolbar: [
-    [{ header: "1" }, { header: "2" }, { header: "3" }, { font: [] }],
+    [{ header: "1" }, { header: "2" }, { font: [] }],
     [{ size: [] }],
     ["bold", "italic", "underline", "strike", "blockquote"],
     [{ align: [] }],

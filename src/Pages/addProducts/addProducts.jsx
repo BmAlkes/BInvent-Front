@@ -2,28 +2,29 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../Components/loader/Loader";
-import ProductForm from "../../Components/productForm/ProductForm";
+import ProductForm from "../../Components/product/productForm/ProductForm";
 import {
-  selectIsLoading,
   createProduct,
+  selectIsLoading,
 } from "../../redux/features/product/productSlice";
 
 const initialState = {
   name: "",
   category: "",
-  quatity: "",
+  quantity: "",
   price: "",
 };
 
-const AddProducts = () => {
-  const navigate = useNavigate();
+const AddProduct = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [product, setProduct] = useState(initialState);
   const [productImage, setProductImage] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
   const [description, setDescription] = useState("");
 
   const isLoading = useSelector(selectIsLoading);
+
   const { name, category, price, quantity } = product;
 
   const handleInputChange = (e) => {
@@ -31,7 +32,12 @@ const AddProducts = () => {
     setProduct({ ...product, [name]: value });
   };
 
-  const generateSKU = (category) => {
+  const handleImageChange = (e) => {
+    setProductImage(e.target.files[0]);
+    setImagePreview(URL.createObjectURL(e.target.files[0]));
+  };
+
+  const generateKSKU = (category) => {
     const letter = category.slice(0, 3).toUpperCase();
     const number = Date.now();
     const sku = letter + "-" + number;
@@ -42,40 +48,36 @@ const AddProducts = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
-    formData.append("sku", generateSKU(category));
+    formData.append("sku", generateKSKU(category));
     formData.append("category", category);
-    formData.append("quantity", quantity);
+    formData.append("quantity", Number(quantity));
     formData.append("price", price);
     formData.append("description", description);
     formData.append("image", productImage);
+
     console.log(...formData);
 
-    await dispatch(createProduct);
+    await dispatch(createProduct(formData));
 
     navigate("/dashboard");
-  };
-
-  const handleImageChange = (e) => {
-    setProductImage(e.target.files[0]);
-    setImagePreview(URL.createObjectURL(e.target.files[0]));
   };
 
   return (
     <div>
       {isLoading && <Loader />}
-      <h3 className=" --mt">Add New Products</h3>
+      <h3 className="--mt">Add New Product</h3>
       <ProductForm
         product={product}
         productImage={productImage}
         imagePreview={imagePreview}
         description={description}
         setDescription={setDescription}
-        handleImageChange={handleImageChange}
         handleInputChange={handleInputChange}
+        handleImageChange={handleImageChange}
         saveProduct={saveProduct}
       />
     </div>
   );
 };
 
-export default AddProducts;
+export default AddProduct;
