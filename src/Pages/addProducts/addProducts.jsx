@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../Components/loader/Loader";
 import ProductForm from "../../Components/productForm/ProductForm";
 import {
   selectIsLoading,
@@ -61,6 +62,7 @@ const AddProducts = () => {
 
   return (
     <div>
+      {isLoading && <Loader />}
       <h3 className=" --mt">Add New Products</h3>
       <ProductForm
         product={product}
