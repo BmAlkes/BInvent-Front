@@ -19,6 +19,7 @@ import {
 } from "../../../redux/features/product/productSlice";
 import { Link } from "react-router-dom";
 import pdf from "../../../Pdf/report";
+import ExportCSV from "../../../Pdf/ExportCSV";
 
 const ProductList = ({ products, isLoading }) => {
   const [search, setSearch] = useState("");
@@ -97,7 +98,7 @@ const ProductList = ({ products, isLoading }) => {
             >
               PDF
             </button>
-            <button className="--btn --btn-primary">Excel</button>
+            <ExportCSV csvData={currentItems} fileName={"Products"} />
           </div>
           <span>
             {/* <Search
