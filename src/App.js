@@ -20,6 +20,7 @@ import Contact from "./Pages/Contact/Contact";
 import Profile from "./Pages/Profile/Profile";
 import EditProduct from "./Pages/editProduct/EditProduct";
 import ProductDetail from "./Components/product/productDetails/productDetails";
+import EditProfile from "./Pages/Profile/EditProfile";
 
 axios.defaults.withCredentials = true;
 
@@ -97,7 +98,9 @@ function App() {
           path="/edit-profile"
           element={
             <SiderBar>
-              <Layout>{/* <EditProfile /> */}</Layout>
+              <Layout>
+                <EditProfile />
+              </Layout>
             </SiderBar>
           }
         />
