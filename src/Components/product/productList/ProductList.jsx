@@ -4,15 +4,15 @@ import "./productList.scss";
 import { BiEditAlt } from "react-icons/bi";
 import { BsTrash } from "react-icons/bs";
 import { AiFillFileText } from "react-icons/ai";
-// import Search from "../../search/Search";
+import Search from "../../Search/Search";
 import { useDispatch, useSelector } from "react-redux";
 import {
   FILTER_PRODUCTS,
   selectFilteredPoducts,
 } from "../../../redux/features/product/filterSlice";
-// import ReactPaginate from "react-paginate";
-// import { confirmAlert } from "react-confirm-alert";
-// import "react-confirm-alert/src/react-confirm-alert.css";
+import ReactPaginate from "react-paginate";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 import {
   deleteProduct,
   getProducts,
@@ -41,22 +41,22 @@ const ProductList = ({ products, isLoading }) => {
     await dispatch(getProducts());
   };
 
-  //   const confirmDelete = (id) => {
-  //     confirmAlert({
-  //       title: "Delete Product",
-  //       message: "Are you sure you want to delete this product.",
-  //       buttons: [
-  //         {
-  //           label: "Delete",
-  //           onClick: () => delProduct(id),
-  //         },
-  //         {
-  //           label: "Cancel",
-  //           // onClick: () => alert('Click No')
-  //         },
-  //       ],
-  //     });
-  //   };
+  const confirmDelete = (id) => {
+    confirmAlert({
+      title: "Delete Product",
+      message: "Are you sure you want to delete this product.",
+      buttons: [
+        {
+          label: "Delete",
+          onClick: () => delProduct(id),
+        },
+        {
+          label: "Cancel",
+          onClick: () => alert("Click No"),
+        },
+      ],
+    });
+  };
 
   //   Begin Pagination
   const [currentItems, setCurrentItems] = useState([]);
@@ -101,10 +101,10 @@ const ProductList = ({ products, isLoading }) => {
             <ExportCSV csvData={currentItems} fileName={"Products"} />
           </div>
           <span>
-            {/* <Search
+            <Search
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-            /> */}
+            />
           </span>
         </div>
 
@@ -170,7 +170,7 @@ const ProductList = ({ products, isLoading }) => {
             </table>
           )}
         </div>
-        {/* <ReactPaginate
+        <ReactPaginate
           breakLabel="..."
           nextLabel="Next"
           onPageChange={handlePageClick}
@@ -183,7 +183,7 @@ const ProductList = ({ products, isLoading }) => {
           previousLinkClassName="page-num"
           nextLinkClassName="page-num"
           activeLinkClassName="activePage"
-        /> */}
+        />
       </div>
     </div>
   );
