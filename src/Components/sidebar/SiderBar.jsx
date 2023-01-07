@@ -24,10 +24,7 @@ const Sidebar = ({ children }) => {
             <img src={Logo1} style={{ cursor: "pointer" }} onClick={goHome} />
           </div>
 
-          <div
-            className="bars"
-            style={{ marginLeft: isOpen ? "100px" : "0px" }}
-          >
+          <div className="bars" style={{ marginLeft: isOpen ? "50px" : "0px" }}>
             <HiMenuAlt3 onClick={toggle} />
           </div>
         </div>

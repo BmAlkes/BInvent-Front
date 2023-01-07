@@ -26,29 +26,30 @@ main {
   // border-bottom: 2px solid #ccc;
   transition: all 0.5s;
   background-color: var(--dark-blue);
-  height: 70px;
+  height: 120px;
+  justify-content: center;
 }
 .logo {
   font-size: 30px;
   color: var(--color-white);
   & img {
-    width: 80px;
-    object-fit: cover;
+    width: 110px;
     padding: 10px;
   }
 }
 .bars {
   display: flex;
-  font-size: 25px;
-  margin-left: 70px;
+  font-size: 40px;
+  margin-left: 10px;
   cursor: pointer;
   color: var(--color-white);
   transition: all 0.3s;
+  transform: rotate(180deg);
 }
 
 .bars:hover {
   color: var(--color-primary);
-  font-size: 27px;
+  font-size: 37px;
 }
 
 .sidebar-item {
