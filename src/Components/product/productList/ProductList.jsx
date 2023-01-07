@@ -63,7 +63,6 @@ const ProductList = ({ products, isLoading }) => {
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 5;
-  console.log(currentItems);
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -159,7 +158,7 @@ const ProductList = ({ products, isLoading }) => {
                           <BsTrash
                             size={20}
                             color={"red"}
-                            // onClick={() => confirmDelete(_id)}
+                            onClick={() => confirmDelete(_id)}
                           />
                         </span>
                       </td>

@@ -15,6 +15,11 @@ import { useEffect } from "react";
 import { getLoginStatus } from "./services/authServices";
 import { SET_LOGIN } from "./redux/features/auth/authSlice";
 import AddProducts from "./Pages/addProducts/addProducts";
+import Systeam from "./Pages/Systeam/Systeam";
+import Contact from "./Pages/Contact/Contact";
+import Profile from "./Pages/Profile/Profile";
+import EditProduct from "./Pages/editProduct/EditProduct";
+import ProductDetail from "./Components/product/productDetails/productDetails";
 
 axios.defaults.withCredentials = true;
 
@@ -54,6 +59,64 @@ function App() {
             <SiderBar>
               <Layout>
                 <AddProducts />
+              </Layout>
+            </SiderBar>
+          }
+        />
+        <Route
+          path="/product-detail/:id"
+          element={
+            <SiderBar>
+              <Layout>
+                <ProductDetail />
+              </Layout>
+            </SiderBar>
+          }
+        />
+        <Route
+          path="/edit-product/:id"
+          element={
+            <SiderBar>
+              <Layout>
+                <EditProduct />
+              </Layout>
+            </SiderBar>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <SiderBar>
+              <Layout>
+                <Profile />
+              </Layout>
+            </SiderBar>
+          }
+        />
+        <Route
+          path="/edit-profile"
+          element={
+            <SiderBar>
+              <Layout>{/* <EditProfile /> */}</Layout>
+            </SiderBar>
+          }
+        />
+        <Route
+          path="/contact-us"
+          element={
+            <SiderBar>
+              <Layout>
+                <Contact />
+              </Layout>
+            </SiderBar>
+          }
+        />
+        <Route
+          path="/systeam"
+          element={
+            <SiderBar>
+              <Layout>
+                <Systeam />
               </Layout>
             </SiderBar>
           }
