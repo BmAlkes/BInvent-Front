@@ -62,7 +62,8 @@ const ProductList = ({ products, isLoading }) => {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 5;
+  const itemsPerPage = 6;
+  console.log(itemOffset);
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -93,11 +94,11 @@ const ProductList = ({ products, isLoading }) => {
             <span className="--text-p --mr">Download File</span>
             <button
               className="--btn --btn-primary"
-              onClick={(e) => pdf(currentItems)}
+              onClick={(e) => pdf(filteredProducts)}
             >
               PDF
             </button>
-            <ExportCSV csvData={currentItems} fileName={"Products"} />
+            <ExportCSV csvData={filteredProducts} fileName={"Products"} />
           </div>
           <span>
             <Search
